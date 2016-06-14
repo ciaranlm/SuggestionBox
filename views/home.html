@@ -1,0 +1,18 @@
+	<h1> {{ helloWorld }} </h1>
+	<div id="suggestionPosts">
+		<div ng-repeat="post in posts | orderBy: '-upvotes'">
+			{{ post.title }}
+			<p>
+				<span class="glyphicon glyphicon-plus" ng-click="upVote(post)"></span> 
+				Upvotes: {{post.upvotes}}
+				<a href="#/suggestion/{{$index}}">Comments</a>
+			</p>
+		</div>
+	</div>
+	<form ng-submit="addSuggestion()" style="margin-top: 50px">
+		<h3> Submit Your Suggestion </h3>
+		<div class="form-group">
+		<input type="text" class="form-control" placeholder="Write a Post..." ng-model="title"></input>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
